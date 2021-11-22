@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="448" height="512"
+	 viewBox="0 0 448 512">
+	<defs>
+		<linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#f24e86"/>
+			<stop offset="1" stop-color="#4e4ef2"/>
+		</linearGradient>
+	</defs>
+	<g id="Group_2" data-name="Group 2" transform="translate(-32)">
+		<path id="iconmonstr-hexagon-1" d="M384,2,512,226,384,450H128L0,226,128,2Z"
+			  transform="translate(482) rotate(90)" fill="url(#linear-gradient)"/>
+		<path id="iconmonstr-hexagon-1-2" data-name="iconmonstr-hexagon-1"
+			  d="M288.473,2l96.158,168.276L288.473,338.552H96.158L0,170.276,96.158,2Z"
+			  transform="translate(426.276 63.684) rotate(90)" fill="none" stroke="#fff" stroke-width="32"/>
+		<path id="iconmonstr-hexagon-1-3" data-name="iconmonstr-hexagon-1"
+			  d="M164.571,2l54.857,96-54.857,96H54.857L0,98,54.857,2Z" transform="translate(354 146.286) rotate(90)"
+			  fill="none" stroke="#fff" stroke-width="32"/>
+	</g>
+</svg>
