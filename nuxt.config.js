@@ -4,6 +4,10 @@ export default {
 
 	ssr: true,
 
+	generate: {
+		dir: 'public'
+	},
+
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'Parasol Finance',
