@@ -2,11 +2,13 @@ export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	// target: 'static',
 
-	ssr: true,
+	// ssr: true,
 
-	generate: {
-		dir: 'public'
-	},
+	// target: 'static',
+	//
+	// generate: {
+	// 	dir: 'public'
+	// },
 
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
@@ -29,6 +31,10 @@ export default {
 		'@/assets/scss/app.scss'
 	],
 
+	tailwindcss: {
+		viewer: false
+	},
+
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
 	],
@@ -40,13 +46,31 @@ export default {
 	buildModules: [
 		// https://go.nuxtjs.dev/tailwindcss
 		'@nuxtjs/tailwindcss',
+		'@nuxtjs/pwa',
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [
+		'@nuxtjs/robots',
 	],
 
-	extractCSS: true,
+	pwa: {
+		twitterCard: 'summary_large_image',
+		twitterCreator: '@parasol_finance',
+		author: 'Parasol Finance',
+		manifest: {
+			name: 'Parasol Finance',
+			lang: 'en',
+			background_color: "#161921",
+			theme_color: "#161921",
+			useWebmanifestExtension: false
+		}
+	},
+
+	robots: {
+		UserAgent: '*',
+		Disallow: '/'
+	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {

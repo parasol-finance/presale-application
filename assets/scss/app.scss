@@ -3,3 +3,22 @@ body
 	background-color: #161921;
 	color: #ffffff;
 }
+
+.border-fancy {
+	background: linear-gradient(to right, #191b24, #191b24), linear-gradient(to bottom right, #8b5cf6, #db2777);
+	background-clip: padding-box, border-box;
+	background-origin: padding-box, border-box;
+	border: 2.1px solid transparent;
+}
+
+//
+//.hover\:border-gradient-tl-blue-green-gray-900:hover {
+//	background: linear-gradient(to right, #18181B, #18181B),
+//	linear-gradient(to top left, #60A5FA, #4ADE80);
+//	background-clip: padding-box, border-box;
+//	background-origin: padding-box, border-box;
+//}
+//
+//.gradient-border-3 {
+//	border: 3px solid transparent;
+//}
