@@ -36,6 +36,9 @@ Vue.mixin({
 			// 	}
 			// }
 		},
+		isConnected() {
+			return window.solana.isConnected;
+		},
 		// initWallet(onlyIfTrusted = true){
 		// 	if ("solana" in window) {
 		// 		const provider = window.solana;
