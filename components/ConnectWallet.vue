@@ -9,30 +9,24 @@
 <script>
 export default {
 	name: "ConnectWallet",
-	// data() {
-	// 	return {
-	// 		isWalletConnected: false,
-	// 		publicKey: null
-	// 	}
-	// },
 	methods: {
 		connectWallet: function () {
 			if(!this.isPhantomAvailable()) {
 				alert("For now Parasol Finance only support Phantom wallet! You can download it on phantom.app.");
 				window.open("https://phantom.app/", "_blank");
 			}
-			if(!this.isWalletConnected) {
-				window.solana.connect({ onlyIfTrusted: false })
-					.then(({ publicKey }) => {
+			if (this.$wallet.isConnected) {
+				window.solana.disconnect();
+			}
+			else {
+				window.solana.connect({onlyIfTrusted: false})
+					.then(({publicKey}) => {
 						this.$wallet.isConnected = window.solana.isConnected;
 						this.$wallet.publicKey = publicKey.toString();
 					})
 					.catch(() => {
 						// Handle connection failure as usual
 					});
-			}
-			else {
-				window.solana.disconnect();
 			}
 		}
 	}

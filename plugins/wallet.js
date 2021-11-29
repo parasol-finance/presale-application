@@ -29,6 +29,7 @@ if ("solana" in window) {
 	if (provider.isPhantom) {
 		window.solana.connect({ onlyIfTrusted: true })
 			.then(({ publicKey }) => {
+				alert('lol')
 				wallet.isConnected = window.solana.isConnected;
 				wallet.publicKey = publicKey.toString();
 			});

@@ -48,25 +48,36 @@
 					<p class="text-lg font-semiboldt mb-3">
 						The First Community Governed IDO Platform on Solana.
 					</p>
-					<p class="text-gray-200 mb-5">
+					<p class="text-gray-200 mb-10">
 						Parasol Finance is the first-ever community governed IDO platform built on Solana with the needs
 						of both projects and investors alike.
 					</p>
-					<!--					<div class="flex gap-3">-->
-					<!--						<span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-pink-500">-->
-					<!--							#Launchpad-->
-					<!--						</span>-->
-					<!--						<span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-pink-500">-->
-					<!--							#Governance-->
-					<!--						</span>-->
-					<!--						<span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-pink-500">-->
-					<!--							#Defi-->
-					<!--						</span>-->
-					<!--					</div>-->
-					<!--					<p class="text-gray-200">-->
-					<!--						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-					<!--&lt;!&ndash;						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&ndash;&gt;-->
-					<!--					</p>-->
+					<p class="text-center text-gray-200 mb-3 font-bold">
+						Countdown before the opening of the public presale:
+					</p>
+					<h3 class="mb-2 mx-10 text-center">
+						<vue-countdown tag="div" class="flex gap-3 justify-around" :time="time" :interval="100" v-slot="{ days, hours, minutes, seconds, milliseconds }">
+							<div class="flex flex-col">
+								<span class="text-6xl font-extrabold">{{ days }}</span>
+								<span class="text-gray-400">Days</span>
+							</div>
+							<div class="text-5xl pt-3 text-gray-200">:</div>
+							<div class="flex flex-col">
+								<span class="text-6xl font-extrabold">{{ hours }}</span>
+								<span class="text-gray-400">Hours</span>
+							</div>
+							<div class="text-5xl pt-3 text-gray-200">:</div>
+							<div class="flex flex-col">
+								<span class="text-6xl font-extrabold">{{ minutes }}</span>
+								<span class="text-gray-400">Minutes</span>
+							</div>
+							<div class="text-5xl pt-3 text-gray-200">:</div>
+							<div class="flex flex-col">
+								<span class="text-6xl font-extrabold">{{ seconds }}</span>
+								<span class="text-gray-400">Seconds</span>
+							</div>
+						</vue-countdown>
+					</h3>
 				</div>
 				<div class="col-span-4">
 					<div class="flow-root">
@@ -77,15 +88,11 @@
 										  aria-hidden="true"></span>
 									<div class="relative flex space-x-3">
 										<div>
-											<span
-												class="h-8 w-8 rounded-full bg-pink-500 flex items-center justify-center">
-											  <!-- Heroicon name: solid/user -->
-											  <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
-												   viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-												<path fill-rule="evenodd"
-													  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-													  clip-rule="evenodd"/>
-											  </svg>
+											<span class="h-8 w-8 rounded-full bg-pink-500 flex items-center justify-center">
+<!--											  </svg>-->
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+												</svg>
 											</span>
 										</div>
 										<div class="min-w-0 flex-1 flex justify-between space-x-4">
@@ -96,7 +103,7 @@
 												</p>
 											</div>
 											<div class="text-right text-sm whitespace-nowrap text-gray-500">
-												<time datetime="2020-09-20">Sep 20</time>
+												<time datetime="2020-09-20">Now</time>
 											</div>
 										</div>
 									</div>
@@ -109,24 +116,21 @@
 										  aria-hidden="true"></span>
 									<div class="relative flex space-x-4">
 										<div>
-											<span class="h-8 w-8 rounded-full bg-pink-500 flex items-center justify-center">
-											  <!-- Heroicon name: solid/thumb-up -->
-											  <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-												   aria-hidden="true">
-												<path
-													d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-											  </svg>
+											<span class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+												</svg>
 											</span>
 										</div>
 										<div class="min-w-0 flex-1 flex justify-between space-x-4">
 											<div>
-												<h3 class="text-base text-gray-200">Preparation</h3>
+												<h3 class="text-base text-gray-200">Presale Opening</h3>
 												<p class="text-gray-400 text-sm">
-													This project is in preparation phase. Stay tuned.
+													Everybody can order some $PSOL in SOL or USDC.
 												</p>
 											</div>
 											<div class="text-right text-sm whitespace-nowrap text-gray-500">
-												<time datetime="2020-09-22">Sep 22</time>
+												<time datetime="2020-09-22">Dec 12</time>
 											</div>
 										</div>
 									</div>
@@ -135,28 +139,24 @@
 
 							<li>
 								<div class="relative pb-8">
-									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"
-										  aria-hidden="true"></span>
+									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500" aria-hidden="true"></span>
 									<div class="relative flex space-x-4">
 										<div>
-											<span class="h-8 w-8 rounded-full bg-pink-500 flex items-center justify-center">
-											  <!-- Heroicon name: solid/thumb-up -->
-											  <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-												   aria-hidden="true">
-												<path
-													d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
+											<span class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+											  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
 											  </svg>
 											</span>
 										</div>
 										<div class="min-w-0 flex-1 flex justify-between space-x-4">
 											<div>
-												<h3 class="text-base text-gray-200">Preparation</h3>
+												<h3 class="text-base text-gray-200">Token Listing</h3>
 												<p class="text-gray-400 text-sm">
-													This project is in preparation phase. Stay tuned.
+													Listing on different websites like coinmarketcap.com
 												</p>
 											</div>
 											<div class="text-right text-sm whitespace-nowrap text-gray-500">
-												<time datetime="2020-09-30">Sep 30</time>
+												<time datetime="2020-09-30">Jan 31, 2022</time>
 											</div>
 										</div>
 									</div>
@@ -167,9 +167,9 @@
 								<div class="relative pb-8">
 									<div class="relative flex space-x-4">
 										<div>
-											<span class="h-8 w-8 rounded-full bg-pink-500 flex items-center justify-center">
+											<span class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
 											  <!-- Heroicon name: solid/check -->
-											  <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+											  <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
 												   aria-hidden="true">
 												<path fill-rule="evenodd"
 													  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -179,13 +179,13 @@
 										</div>
 										<div class="min-w-0 flex-1 flex justify-between space-x-4">
 											<div>
-												<h3 class="text-base text-gray-200">Preparation</h3>
+												<h3 class="text-base text-gray-200">Launching Parasol Finance</h3>
 												<p class="text-gray-400 text-sm">
-													This project is in preparation phase. Stay tuned.
+													Parasol Finance will be launched for everyone.
 												</p>
 											</div>
 											<div class="text-right text-sm whitespace-nowrap text-gray-500">
-												<time datetime="2020-10-04">Oct 4</time>
+												<time datetime="2020-10-04">Jan 7, 2022</time>
 											</div>
 										</div>
 									</div>
@@ -279,7 +279,20 @@
 
 <script>
 export default {
-	name: "presale"
+	name: "presale",
+	data() {
+		const now = new Date();
+		const newYear = new Date("2021-12-12");
+
+		return {
+			time: newYear - now,
+		};
+	}
+	// data() {
+	// 	return {
+	// 		time: new Date(2021, 12, 12) - new Date(),
+	// 	}
+	// },
 }
 </script>
 
