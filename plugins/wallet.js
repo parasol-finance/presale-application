@@ -15,12 +15,25 @@ import {
 const cluster = "https://api.mainnet-beta.solana.com";
 const connection = new Connection(cluster, "confirmed");
 
-// if ("solana" in window) {
-// 	const provider = window.solana;
-// 	if (provider.isPhantom) {
-// 		window.solana.connect({ onlyIfTrusted: true });
-// 	}
-// }
+const wallet = {
+	isConnected: false,
+	publicKey: null
+}
+
+export default ({ app }, inject) => {
+	inject('wallet', Vue.observable(wallet))
+}
+
+if ("solana" in window) {
+	const provider = window.solana;
+	if (provider.isPhantom) {
+		window.solana.connect({ onlyIfTrusted: true })
+			.then(({ publicKey }) => {
+				wallet.isConnected = window.solana.isConnected;
+				wallet.publicKey = publicKey.toString();
+			});
+	}
+}
 
 import Vue from 'vue'
 Vue.mixin({

@@ -1,7 +1,7 @@
 <template>
 	<section class="mt-20 px-6">
 		<article class="p-10 max-w-xl mx-auto sm:rounded-lg flex-flex-col-items-center">
-			<div v-if="!isConnected" class="backdrop-filter backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 w-full h-full">
+			<div v-if="!this.$wallet.isConnected" class="backdrop-filter backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
 				<h1 class="text-3xl mb-3 font-semibold">Connection Required</h1>
 				<p class="mb-5">Your wallet is currently not connected and we need it to authenticate you.</p>
 				<ConnectWallet />
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
 	name: "airdrop",
 	data() {
@@ -58,9 +60,13 @@ export default {
 			this.isTelegramConnected = true;
 			this.user = user;
 		},
+		isWalletConnected() {
+			console.log("LOL" + window.solana.isConnected)
+			return window.solana.isConnected;
+		},
 		confirm: function () {
 			alert('lol');
-		}
+		},
 	}
 }
 </script>
