@@ -1,31 +1,28 @@
 <template>
 	<nav class="flex flex-col gap-3 relative flex-1 px-5">
-		<NuxtLink to="/" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-500 text-gray-200 text-sm px-3 py-3 rounded-lg">
+		<NuxtLink to="/" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center text-gray-200 text-sm px-3 py-3 rounded-lg">
 			<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
 			Overview
 		</NuxtLink>
-		<NuxtLink to="/presale" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-500 text-gray-200 text-sm px-3 py-3 rounded-lg">
+		<NuxtLink to="/presale" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center text-gray-200 text-sm px-3 py-3 rounded-lg">
 			<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
 			Participate to Presale
 		</NuxtLink>
-		<NuxtLink to="/airdrop" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-500 text-gray-200 text-sm px-3 py-3 rounded-lg">
+		<NuxtLink to="/airdrop" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center text-gray-200 text-sm px-3 py-3 rounded-lg">
 			<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
 			Lottery Airdrop
 		</NuxtLink>
-		<NuxtLink to="/join" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-500 text-gray-200 text-sm px-3 py-3 rounded-lg">
+		<a href="#" @click="suce" exact-active-class="bg-gradient-to-r from-purple-500 to-pink-600 text-white" class="flex items-center text-gray-200 text-sm px-3 py-3 rounded-lg">
 			<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
 			Join the Community
-		</NuxtLink>
+		</a>
 		<div class="mt-auto mb-6">
-			<NuxtLink to="/submit-project" class="flex items-center text-pink-100 font-semibold mx-2 justify-center border-solid border-2 border-fancy hover:from-pink-600 hover:to-purple-500 mb-6 bottom-2 text-white text-sm p-3 rounded-lg">
+			<a href="https://docs.parasol.finance/" target="_blank" class="flex items-center text-pink-100 font-semibold mx-2 justify-center border-solid border-2 border-fancy hover:from-pink-600 hover:to-purple-500 mb-6 bottom-2 text-white text-sm p-3 rounded-lg">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
 				</svg>
-				<!--					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">-->
-				<!--						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />-->
-				<!--					</svg>-->
 				Submit a Project
-			</NuxtLink>
+			</a>
 			<p class="text-xs text-gray-500 text-center">Copyright &copy; 2021 Parasol Finance<br />All Rights Reserved.</p>
 			<div class="flex justify-between mt-5 px-6">
 				<a href="https://github.com/parasol-finance" target="_blank" class="text-gray-400 hover:text-gray-500">
@@ -68,7 +65,13 @@
 
 <script>
 export default {
-	name: "NavMenu"
+	name: "NavMenu",
+	methods: {
+		suce: function()
+		{
+			this.$root.$emit('joinCommunity');
+		}
+	}
 }
 </script>
 

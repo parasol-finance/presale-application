@@ -1,11 +1,15 @@
 <template>
 	<div id="app" class="h-screen flex">
+		<JoinCommunityModal />
 		<aside class="flex w-64 flex-col" style="width: 17rem;">
 			<div class="flex flex-col text-center items-center px-4 py-10">
 				<img class="w-28 mb-6" src="https://parasol.finance/icon.png" alt="logo" />
 				<h1 class="text-xl font-semibold">Parasol Finance</h1>
 				<p class="text-xs text-gray-300 mt-2">The First Community Governed IDO Platform on Solana.</p>
-				<a href="" class="text-sm mt-2 text-pink-500">app.parasol.finance</a>
+				<a href="https://app.parasol.finance" class="text-sm mt-2 flex items-center text-pink-500">
+					<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+					app.parasol.finance
+				</a>
 			</div>
 			<NavMenu />
 		</aside>

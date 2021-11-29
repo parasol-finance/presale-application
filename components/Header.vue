@@ -1,28 +1,29 @@
 <template>
 	<div class="flex justify-between items-center mb-12">
-		<div class="">
-			<h1 class="flex items-center font-semibold text-xl text-gray-200">
-				<img class="w-6 mr-3" src="https://parasol.finance/icon.png" alt="logo" />
-				<!--				Welcome to Parasol Finance-->
-				Parasol Finance
-			</h1>
-		</div>
+<!--		<div class="">-->
+<!--			<h1 class="flex items-center font-semibold text-xl text-gray-200">-->
+<!--				<img class="w-6 mr-3" src="https://parasol.finance/icon.png" alt="logo" />-->
+<!--				&lt;!&ndash;				Welcome to Parasol Finance&ndash;&gt;-->
+<!--				Parasol Finance-->
+<!--			</h1>-->
+<!--		</div>-->
 		<div class="flex gap-3 items-center">
-			<a href="https://parasol.finance/" class="text-base text-gray-300 mr-4">
+			<a href="https://parasol.finance/" class="text-base flex items-center text-gray-300 mr-4">
+				<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
 				Go to Home
 			</a>
-			<a href="https://docs.parasol.finance/" target="_blank" class="text-base text-gray-300 mr-4">
+			<a href="https://docs.parasol.finance/" target="_blank" class="text-base flex items-center text-gray-300 mr-4">
+				<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
 				Read Documentation
 			</a>
-			<button class="flex items-center justify-center px-5 bg-gray-700 bg-opacity-30 py-2 text-sm font-medium rounded-full shadow-lg text-white">
+		</div>
+		<div class="flex gap-3 items-center">
+			<button class="flex items-center justify-center px-5 bg-gray-700 bg-opacity-30 py-2 text-sm font-medium rounded-full shadow-lg text-gray-200 opacity-100">
 				<Logo class="h-5 mr-2" />
-				1 PSOL &asymp; $7.21
+				<!--&asymp;-->
+				1 PSOL &equals; LISTED SOON
 			</button>
-			<button class="flex items-center justify-center px-6 bg-pink-600 py-2 text-sm font-medium rounded-full shadow-lg text-white bg-gradient-to-r from-purple-500 to-pink-600 hover:from-pink-600 hover:to-purple-500">
-				<svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" style="fill: white;" viewBox="0 0 24 24"><path d="M16 12h2v4h-2z"></path><path d="M20 7V5c0-1.103-.897-2-2-2H5C3.346 3 2 4.346 2 6v12c0 2.201 1.794 3 3 3h15c1.103 0 2-.897 2-2V9c0-1.103-.897-2-2-2zM5 5h13v2H5a1.001 1.001 0 0 1 0-2zm15 14H5.012C4.55 18.988 4 18.805 4 18V8.815c.314.113.647.185 1 .185h15v10z"></path></svg>
-				<!--			<svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>-->
-				Connect Wallet
-			</button>
+			<ConnectWallet />
 		</div>
 	</div>
 </template>

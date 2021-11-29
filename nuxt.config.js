@@ -1,8 +1,8 @@
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
-	// target: 'static',
+	target: 'static',
 
-	// ssr: true,
+	ssr: false,
 
 	// target: 'static',
 	//
@@ -37,6 +37,8 @@ export default {
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
+		'@/plugins/wallet',
+		'@/plugins/telegram-login',
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
