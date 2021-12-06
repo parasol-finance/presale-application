@@ -55,7 +55,7 @@
 					<p class="text-center text-gray-200 mb-3 font-bold">
 						Countdown before the opening of the public presale:
 					</p>
-					<h3 class="mb-2 mx-10 text-center">
+					<h3 class="mb-2 mx-20 text-center">
 						<vue-countdown tag="div" class="flex gap-3 justify-around" :time="time" :interval="100" v-slot="{ days, hours, minutes, seconds, milliseconds }">
 							<div class="flex flex-col">
 								<span class="text-6xl font-extrabold">{{ days }}</span>
