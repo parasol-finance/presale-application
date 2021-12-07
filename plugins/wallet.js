@@ -75,6 +75,7 @@ Vue.mixin({
 			const transaction = await createTransaction([transferInstruction], new PublicKey(this.$wallet.publicKey));
 			const { signature } = await window.solana.signAndSendTransaction(transaction);
 			await connection.confirmTransaction(signature);
+			this.$root.$emit('thanks');
 		}
 	}
 });

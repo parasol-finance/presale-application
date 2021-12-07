@@ -57,79 +57,82 @@
 						Parasol Finance is the first-ever community governed IDO platform built on Solana with the needs
 						of both projects and investors alike.
 					</p>
-					<div class="flex justify-between my-10 mr-5">
-						<div class="flex items-center">
-							<div class="mr-4">
-								<img alt="USDC" class="w-10" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
-							</div>
-							<div>
-								<p class="text-gray-300 text-sm">Hard Cap</p>
-								<h4 class="text-xl whitespace-nowrap">210,000 USDC</h4>
-							</div>
-						</div>
-						<div class="flex items-center">
-							<div class="mr-4">
-								<img alt="USDC" class="w-10" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
-							</div>
-							<div>
-								<p class="text-gray-300 text-sm">Token Price</p>
-								<h4 class="text-xl whitespace-nowrap">0.21 USDC</h4>
-							</div>
-						</div>
-						<div class="flex items-center">
-							<div class="mr-4">
-								<img alt="PSOL" class="w-10" src="https://parasol.finance/icon.png" />
-							</div>
-							<div>
-								<p class="text-gray-300 text-sm">Available Tokens</p>
-								<h4 class="text-xl whitespace-nowrap">100,00 PSOL</h4>
-							</div>
-						</div>
+					<div v-if="presaleTimeOffset > 0" class="my-10">
+						<p class="text-center text-gray-200 mb-3 font-bold">
+							Countdown before the opening of the public presale:
+						</p>
+						<h3 class="mb-2 mx-20 text-center">
+							<vue-countdown tag="div" class="flex gap-3 justify-around" :time="presaleTimeOffset" :interval="100" @end="updateCountdown" v-slot="{ days, hours, minutes, seconds, milliseconds }">
+								<div class="flex flex-col">
+									<span class="text-6xl font-extrabold">{{ days }}</span>
+									<span class="text-gray-400">Days</span>
+								</div>
+								<div class="text-5xl pt-3 text-gray-200">:</div>
+								<div class="flex flex-col">
+									<span class="text-6xl font-extrabold">{{ hours }}</span>
+									<span class="text-gray-400">Hours</span>
+								</div>
+								<div class="text-5xl pt-3 text-gray-200">:</div>
+								<div class="flex flex-col">
+									<span class="text-6xl font-extrabold">{{ minutes }}</span>
+									<span class="text-gray-400">Minutes</span>
+								</div>
+								<div class="text-5xl pt-3 text-gray-200">:</div>
+								<div class="flex flex-col">
+									<span class="text-6xl font-extrabold">{{ seconds }}</span>
+									<span class="text-gray-400">Seconds</span>
+								</div>
+							</vue-countdown>
+						</h3>
 					</div>
-					<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
-					<form @submit.prevent="participate" class="flex gap-2 w-100 mb-10 items-stretch">
-						<div class="relative flex items-stretch flex-1">
-							<input type="number" v-model="amount" required min="10" max="5000" v-maska="'####'" value="0" name="search" id="search" class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded">
-							<div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
-								<kbd class="inline-flex items-center rounded px-2 text-sm font-sans font-medium text-gray-400">
-									<img alt="USDC" class="w-4 mr-1" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
-									USDC
-								</kbd>
+					<div v-else>
+						<div class="flex justify-between my-10 mr-5">
+							<div class="flex items-center">
+								<div class="mr-4">
+									<img alt="USDC" class="w-10" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
+								</div>
+								<div>
+									<p class="text-gray-300 text-sm">Hard Cap</p>
+									<h4 class="text-xl whitespace-nowrap">210,000 USDC</h4>
+								</div>
+							</div>
+							<div class="flex items-center">
+								<div class="mr-4">
+									<img alt="USDC" class="w-10" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
+								</div>
+								<div>
+									<p class="text-gray-300 text-sm">Token Price</p>
+									<h4 class="text-xl whitespace-nowrap">0.21 USDC</h4>
+								</div>
+							</div>
+							<div class="flex items-center">
+								<div class="mr-4">
+									<img alt="PSOL" class="w-10" src="https://parasol.finance/icon.png" />
+								</div>
+								<div>
+									<p class="text-gray-300 text-sm">Available Tokens</p>
+									<h4 class="text-xl whitespace-nowrap">100,00 PSOL</h4>
+								</div>
 							</div>
 						</div>
-						<button type="submit" class="flex items-center px-7 focus:outline-none focus:ring-2 focus:ring-offset-2 text-xs font-medium rounded shadow-sm bg-gradient-to-r from-purple-500 to-pink-600 text-white">
-							Participate to Presale
-						</button>
-					</form>
+						<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
+						<form @submit.prevent="participate" class="flex gap-2 w-100 mb-10 items-stretch">
+							<div class="relative flex items-stretch flex-1">
+								<input type="number" v-model="amount" required min="10" max="5000" v-maska="'####'" value="0" name="search" id="search" class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded">
+								<div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+									<kbd class="inline-flex items-center rounded px-2 text-sm font-sans font-medium text-gray-400">
+										<img alt="USDC" class="w-4 mr-1" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
+										USDC
+									</kbd>
+								</div>
+							</div>
+							<button type="submit" class="flex items-center px-7 focus:outline-none focus:ring-2 focus:ring-offset-2 text-xs font-medium rounded shadow-sm bg-gradient-to-r from-purple-500 to-pink-600 text-white">
+								Participate to Presale
+							</button>
+						</form>
+					</div>
 					<h3 class="text-gray-200 text-xl mb-3">Conditions of Participation:</h3>
-					<p class="text-gray-400 text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-<!--					<p class="text-center text-gray-200 mb-3 font-bold">-->
-<!--						Countdown before the opening of the public presale:-->
-<!--					</p>-->
-<!--					<h3 class="mb-2 mx-20 text-center">-->
-<!--						<vue-countdown tag="div" class="flex gap-3 justify-around" :time="time" :interval="100" v-slot="{ days, hours, minutes, seconds, milliseconds }">-->
-<!--							<div class="flex flex-col">-->
-<!--								<span class="text-6xl font-extrabold">{{ days }}</span>-->
-<!--								<span class="text-gray-400">Days</span>-->
-<!--							</div>-->
-<!--							<div class="text-5xl pt-3 text-gray-200">:</div>-->
-<!--							<div class="flex flex-col">-->
-<!--								<span class="text-6xl font-extrabold">{{ hours }}</span>-->
-<!--								<span class="text-gray-400">Hours</span>-->
-<!--							</div>-->
-<!--							<div class="text-5xl pt-3 text-gray-200">:</div>-->
-<!--							<div class="flex flex-col">-->
-<!--								<span class="text-6xl font-extrabold">{{ minutes }}</span>-->
-<!--								<span class="text-gray-400">Minutes</span>-->
-<!--							</div>-->
-<!--							<div class="text-5xl pt-3 text-gray-200">:</div>-->
-<!--							<div class="flex flex-col">-->
-<!--								<span class="text-6xl font-extrabold">{{ seconds }}</span>-->
-<!--								<span class="text-gray-400">Seconds</span>-->
-<!--							</div>-->
-<!--						</vue-countdown>-->
-<!--					</h3>-->
+					<p class="text-gray-400 text-sm mb-5">Minimum deposit: 10$, maximum deposit: 5000$. You can read all our conditions of participations in our documentation at <a href="https://docs.parasol.finance" class="text-pink-500" target="_blank">docs.parasol.finance</a>.</p>
 				</div>
 				<div class="col-span-4">
 					<div class="flow-root">
@@ -257,15 +260,20 @@
 export default {
 	name: "presale",
 	data() {
-		const now = new Date();
-		const newYear = new Date("2021-12-12");
-
 		return {
+			now: new Date(),
+			presaleDate: new Date("Tue, 12 Dec 2021 21:00:21 GMT"),
+			presaleTimeOffset: 0,
 			amount: 0,
-			time: newYear - now,
-		};
+		}
+	},
+	mounted() {
+		this.updateCountdown();
 	},
 	methods: {
+		updateCountdown: function () {
+			this.presaleTimeOffset = this.presaleDate - new Date();
+		},
 		participate: function () {
 			this.participateToPresale(this.amount);
 		}
