@@ -4,6 +4,7 @@
 			<h1 class="text-3xl mb-3">Please Use Desktop</h1>
 			<p class="text-lg">Our application only accept phantom wallet for now so please use the desktop version.</p>
 		</div>
+		<ThankYou />
 		<JoinCommunityModal />
 		<aside class="flex w-64 flex-col" style="width: 17rem;">
 			<div class="flex flex-col text-center items-center px-4 py-10">
