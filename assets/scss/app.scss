@@ -11,14 +11,12 @@ body
 	border: 2.1px solid transparent;
 }
 
-//
-//.hover\:border-gradient-tl-blue-green-gray-900:hover {
-//	background: linear-gradient(to right, #18181B, #18181B),
-//	linear-gradient(to top left, #60A5FA, #4ADE80);
-//	background-clip: padding-box, border-box;
-//	background-origin: padding-box, border-box;
-//}
-//
-//.gradient-border-3 {
-//	border: 3px solid transparent;
-//}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}

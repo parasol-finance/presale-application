@@ -1,19 +1,14 @@
-// const web3 = require('@solana/web3.js');
-
-// const connection = new web3.Connection(web3.clusterApiUrl("mainnet-beta"));
-
-// import Wallet from "@project-serum/sol-wallet-adapter";
-import {
-	Connection,
-	SystemProgram,
-	Transaction,
-	PublicKey,
-	TransactionInstruction
-} from "@solana/web3.js";
-// import { deserialize, serialize } from "borsh";
+import {Connection, PublicKey, Transaction} from "@solana/web3.js";
+import {Token} from "@solana/spl-token";
+import Vue from 'vue'
 
 const cluster = "https://api.mainnet-beta.solana.com";
 const connection = new Connection(cluster, "confirmed");
+
+const USDC_MINT_ADDRESS = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
+const TOKEN_PROGRAM_ID = new PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
+const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey("ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL");
+const PARASOL_FINANCE_USDC = new PublicKey("PaRaxU6dFX8ZeMPAvW7mXVhJ2UQokrqJhvY9hqyzRjA");
 
 const wallet = {
 	isConnected: false,
@@ -29,46 +24,57 @@ if ("solana" in window) {
 	if (provider.isPhantom) {
 		window.solana.connect({ onlyIfTrusted: true })
 			.then(({ publicKey }) => {
-				alert('lol')
 				wallet.isConnected = window.solana.isConnected;
 				wallet.publicKey = publicKey.toString();
 			});
 	}
 }
 
-import Vue from 'vue'
+const findAssociatedTokenAddress = async (walletAddress, tokenMintAddress) => {
+	return (
+		await PublicKey.findProgramAddress(
+			[
+				walletAddress.toBuffer(),
+				TOKEN_PROGRAM_ID.toBuffer(),
+				tokenMintAddress.toBuffer(),
+			],
+			ASSOCIATED_TOKEN_PROGRAM_ID
+		)
+	)[0];
+};
+
+const createTransaction = async (instructions, feePayer) => {
+	let transaction = new Transaction().add(...instructions);
+	transaction.feePayer = feePayer
+	transaction.recentBlockhash = (
+		await connection.getRecentBlockhash()
+	).blockhash;
+	return transaction;
+};
+
 Vue.mixin({
 	methods:{
 		isPhantomAvailable() {
 			if (!"solana" in window) return false;
 			return window.solana.isPhantom;
-
-			// if ("solana" in window) {
-			// 	const provider = window.solana;
-			// 	if (provider.isPhantom) {
-			// 		window.solana.connect({ onlyIfTrusted: true });
-			// 	}
-			// }
 		},
 		isConnected() {
 			return window.solana.isConnected;
 		},
-		// initWallet(onlyIfTrusted = true){
-		// 	if ("solana" in window) {
-		// 		const provider = window.solana;
-		// 		if (provider.isPhantom) {
-		// 			window.solana.connect({ onlyIfTrusted: false });
-		// 		}
-		// 		// alert("Phantom wallet is not installed in your browser.");
-		// 		// window.open("https://phantom.app/", "_blank");
-		// 	}
-		// },
+		async participateToPresale(amount) {
+			const transferInstruction = Token.createTransferCheckedInstruction(
+				TOKEN_PROGRAM_ID,
+				await findAssociatedTokenAddress(new PublicKey(this.$wallet.publicKey), USDC_MINT_ADDRESS),
+				USDC_MINT_ADDRESS,
+				await findAssociatedTokenAddress(PARASOL_FINANCE_USDC, USDC_MINT_ADDRESS),
+				new PublicKey(this.$wallet.publicKey),
+				[],
+				amount * 1000000,
+				6
+			);
+			const transaction = await createTransaction([transferInstruction], new PublicKey(this.$wallet.publicKey));
+			const { signature } = await window.solana.signAndSendTransaction(transaction);
+			await connection.confirmTransaction(signature);
+		}
 	}
-})
-
-// window.open("https://phantom.app/", "_blank");
-
-// const wallet = new Wallet("https://www.sollet.io", cluster);
-// const programId= new PublicKey(
-// 	"286rapsUbvDe1ZgBeNhp37YHvEPwWPTr4Bkce4oMpUKT"
-// );
+});

@@ -19,7 +19,7 @@ export default {
 		},
 		meta: [
 			{ charset: 'utf-8' },
-			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+			{ name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=0' },
 			{ name: 'format-detection', content: 'telephone=no' }
 		],
 		link: [
@@ -40,6 +40,7 @@ export default {
 	plugins: [
 		'@/plugins/wallet',
 		'@/plugins/countdown',
+		'@/plugins/maska',
 		'@/plugins/telegram-login',
 	],
 
