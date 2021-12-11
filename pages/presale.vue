@@ -1,39 +1,5 @@
 <template>
 	<section class="mt-20">
-<!--		<div class="p-2 mb-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-600 shadow-lg sm:p-3">-->
-<!--			<div class="flex items-center justify-between flex-wrap">-->
-<!--				<div class="w-0 flex-1 flex items-center">-->
-<!--          <span class="flex p-2 rounded-lg bg-purple-400">-->
-<!--            &lt;!&ndash; Heroicon name: outline/speakerphone &ndash;&gt;-->
-<!--            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">-->
-<!--              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />-->
-<!--            </svg>-->
-<!--          </span>-->
-<!--					<p class="ml-3 font-medium text-white truncate">-->
-<!--            <span class="md:hidden">-->
-<!--              We announced a new product!-->
-<!--            </span>-->
-<!--						<span class="hidden md:inline">-->
-<!--              Big news! We're excited to announce a brand new product.-->
-<!--            </span>-->
-<!--					</p>-->
-<!--				</div>-->
-<!--				<div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">-->
-<!--					<a href="#" class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50">-->
-<!--						Learn more-->
-<!--					</a>-->
-<!--				</div>-->
-<!--				<div class="order-2 flex-shrink-0 sm:order-3 sm:ml-2">-->
-<!--					<button type="button" class="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white">-->
-<!--						<span class="sr-only">Dismiss</span>-->
-<!--						&lt;!&ndash; Heroicon name: outline/x &ndash;&gt;-->
-<!--						<svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">-->
-<!--							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />-->
-<!--						</svg>-->
-<!--					</button>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
 		<article :class="`py-10 px-5 sm:rounded-lg relative ${this.$wallet.isConnected ? 'shadow' : ''}`">
 			<div v-if="!this.$wallet.isConnected" class="backdrop-filter z-50 backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
 				<h1 class="text-3xl mb-3 font-semibold">Connection Required</h1>
@@ -47,8 +13,7 @@
 							class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 leading-normal whitespace-nowrap inline-block">
 							Parasol Finance
 						</span>
-						<span class="text-white">// Presale</span>
-						<!--						Parasol Finance Presale-->
+						<span class="text-white">| Presale | Phase 1</span>
 					</h1>
 					<p class="text-lg font-semiboldt mb-3">
 						The First Community Governed IDO Platform on Solana.
@@ -93,7 +58,7 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Hard Cap</p>
-									<h4 class="text-xl whitespace-nowrap">210,000 USDC</h4>
+									<h4 class="text-xl whitespace-nowrap">463,050 USDC</h4>
 								</div>
 							</div>
 							<div class="flex items-center">
@@ -111,7 +76,7 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Available Tokens</p>
-									<h4 class="text-xl whitespace-nowrap">100,00 PSOL</h4>
+									<h4 class="text-xl whitespace-nowrap">2,205,000 PSOL</h4>
 								</div>
 							</div>
 						</div>
@@ -132,7 +97,7 @@
 						</form>
 					</div>
 					<h3 class="text-gray-200 text-xl mb-3">Conditions of Participation:</h3>
-					<p class="text-gray-400 text-sm mb-5">Minimum deposit: 10$, maximum deposit: 5000$. You can read all our conditions of participations in our documentation at <a href="https://docs.parasol.finance" class="text-pink-500" target="_blank">docs.parasol.finance</a>.</p>
+					<p class="text-gray-400 text-sm mb-5">Minimum deposit: 10$, maximum deposit: 5000$. You can read all our conditions of participations in our documentation at <a href="https://docs.parasol.finance/parasol-presale/public-pre-sale-phase-1" class="text-pink-500" target="_blank">docs.parasol.finance</a>.</p>
 				</div>
 				<div class="col-span-4">
 					<div class="flow-root">
@@ -167,10 +132,9 @@
 
 							<li>
 								<div class="relative pb-8">
-									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"
-										  aria-hidden="true"></span>
+									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"></span>
 									<div class="relative flex space-x-4">
-										<div>
+										<div>t
 											<span class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
 												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
@@ -246,7 +210,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="ml-4">
+					<div v-if="presaleTimeOffset < 0" class="ml-4">
 						<h3 class="text-gray-500 text-xl mt-10 mb-3">Tokens Drop / Claim</h3>
 						<p class="text-gray-500 text-sm mb-5">Once the presale is finished we will send the PSOL tokens to all the addresses that participated.</p>
 					</div>
@@ -262,7 +226,7 @@ export default {
 	data() {
 		return {
 			now: new Date(),
-			presaleDate: new Date("Tue, 12 Dec 2021 21:00:21 GMT"),
+			presaleDate: new Date("Tue, 10 Dec 2021 21:00:21 GMT"),
 			presaleTimeOffset: 0,
 			amount: 0,
 		}
@@ -275,7 +239,12 @@ export default {
 			this.presaleTimeOffset = this.presaleDate - new Date();
 		},
 		participate: function () {
-			this.participateToPresale(this.amount);
+			this.orderAmountOfTokens(this.amount);
+		},
+		isToday: function(someDate) {
+			return someDate.getDate() === this.now.getDate() &&
+				someDate.getMonth() === this.now.getMonth() &&
+				someDate.getFullYear() === this.now.getFullYear()
 		}
 	}
 }

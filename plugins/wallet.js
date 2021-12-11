@@ -61,7 +61,7 @@ Vue.mixin({
 		isConnected() {
 			return window.solana.isConnected;
 		},
-		async participateToPresale(amount) {
+		async orderAmountOfTokens(amount) {
 			const transferInstruction = Token.createTransferCheckedInstruction(
 				TOKEN_PROGRAM_ID,
 				await findAssociatedTokenAddress(new PublicKey(this.$wallet.publicKey), USDC_MINT_ADDRESS),
