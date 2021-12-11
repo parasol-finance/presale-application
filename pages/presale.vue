@@ -92,7 +92,7 @@
 								</div>
 							</div>
 							<button type="submit" class="flex items-center px-7 focus:outline-none focus:ring-2 focus:ring-offset-2 text-xs font-medium rounded shadow-sm bg-gradient-to-r from-purple-500 to-pink-600 text-white">
-								Participate to Presale
+								Participate in Presale
 							</button>
 						</form>
 					</div>
