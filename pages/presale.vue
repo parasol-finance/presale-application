@@ -226,7 +226,7 @@ export default {
 	data() {
 		return {
 			now: new Date(),
-			presaleDate: new Date("Tue, 10 Dec 2021 21:00:21 GMT"),
+			presaleDate: new Date("Tue, 12 Dec 2021 21:00:21 GMT"),
 			presaleTimeOffset: 0,
 			amount: 0,
 		}
