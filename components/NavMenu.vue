@@ -21,11 +21,13 @@
 			Read Documentation
 		</a>
 		<div class="mt-auto mb-6">
-			<a href="https://docs.parasol.finance/" target="_blank" class="flex items-center text-pink-100 font-semibold mx-2 justify-center border-solid border-2 border-fancy hover:from-pink-600 hover:to-purple-500 mb-6 bottom-2 text-white text-sm p-3 rounded-lg">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-				</svg>
-				Submit a Project
+			<a href="#" @click="openCommunityModal"  class="flex items-center text-pink-100 font-semibold mx-2 justify-center border-solid border-2 border-fancy hover:from-pink-600 hover:to-purple-500 mb-6 bottom-2 text-white text-sm p-3 rounded-lg">
+<!--				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">-->
+<!--					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />-->
+<!--				</svg>-->
+<!--				Submit a Project-->
+				<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+				Join the Community
 			</a>
 			<p class="text-xs text-gray-500 text-center">Copyright &copy; 2021 Parasol Finance<br />All Rights Reserved.</p>
 			<div class="flex justify-between mt-5 px-6">
