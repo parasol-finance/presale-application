@@ -1,8 +1,13 @@
 <template>
 	<div id="app" class="h-screen flex">
-		<div class="lg:hidden fixed top-0 bottom-0 z-30 left-0 right-0 bg-gray-800 flex items-center content-center flex-col text-center justify-center px-5">
-			<h1 class="text-3xl mb-3">Please Use Desktop</h1>
-			<p class="text-lg">Our application only accept phantom wallet for now so please use the desktop version.</p>
+		<div id="mobile-modal" class="lg:hidden fixed top-0 bottom-0 z-50 left-0 right-0 flex items-center content-center flex-col text-center justify-center px-6">
+			<img class="w-28 mb-6" src="https://parasol.finance/icon.png" alt="logo" />
+			<h1 class="text-3xl mb-3 font-semibold">Parasol Finance</h1>
+			<p class=" text-lg mb-3">The First Community Governed IDO Platform on Solana.</p>
+			<p class="text-gray-200 mb-3">Our application currently only support <a href="https://phantom.app" target="_blank">phantom</a> wallet that is only available on desktop computer, anyway you can participate manually to our presales and also in private sale if you are whitelisted.</p>
+			<a class="text-pink-500 text-xl" target="_blank" href="https://docs.parasol.finance/parasol-presale/participate-manually">
+				Read How to Participate Manually?
+			</a>
 		</div>
 		<ThankYou />
 		<JoinCommunityModal />
@@ -40,6 +45,12 @@ export default {
 
 aside {
 	filter: drop-shadow(0 0 1rem hsl(228deg 18% 10%));
+	background: hsl(228deg 18% 12%);
+}
+
+#mobile-modal
+{
+	filter: drop-shadow(0 0 0.5rem hsl(228deg 18% 10%));
 	background: hsl(228deg 18% 12%);
 }
 </style>
