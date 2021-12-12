@@ -150,7 +150,7 @@ export default {
 			return this.$wallet.isConnected && this.participants.includes(this.$wallet.publicKey)
 		},
 		updateQuantity: function () {
-			this.psolQuantity = Math.round(this.amount / 0.21);
+			this.psolQuantity = Math.round(this.amount / 0.07);
 		}
 	}
 }
