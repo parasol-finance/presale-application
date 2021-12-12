@@ -97,7 +97,7 @@
 						</form>
 					</div>
 					<h3 class="text-gray-200 text-xl mb-3">Conditions of Participation:</h3>
-					<p class="text-gray-400 text-sm mb-5">Minimum deposit: 10$, maximum deposit: 5000$. You can read all our conditions of participations in our documentation at <a href="https://docs.parasol.finance/parasol-presale/public-pre-sale-phase-1" class="text-pink-500" target="_blank">docs.parasol.finance</a>.</p>
+					<p class="text-gray-400 text-sm mb-5">Minimum deposit: 10$, maximum deposit: 5000$. You can read all our conditions of participations in our documentation at <a href="https://docs.parasol.finance/parasol-presale/how-to-participate-in-presale" class="text-pink-500" target="_blank">docs.parasol.finance</a>.</p>
 				</div>
 				<div class="col-span-4">
 					<div class="flow-root">
