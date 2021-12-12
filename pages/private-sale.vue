@@ -52,7 +52,7 @@
 							</div>
 							<div>
 								<p class="text-gray-300 text-sm">Hard Cap</p>
-								<h4 class="text-xl whitespace-nowrap">210,000 USDC</h4>
+								<h4 class="text-xl whitespace-nowrap">308,700 USDC</h4>
 							</div>
 						</div>
 						<div class="flex items-center">
@@ -71,14 +71,14 @@
 							</div>
 							<div>
 								<p class="text-gray-300 text-sm">Available Tokens</p>
-								<h4 class="text-xl whitespace-nowrap">100,00 PSOL</h4>
+								<h4 class="text-xl whitespace-nowrap">4,410,000 PSOL</h4>
 							</div>
 						</div>
 					</div>
 					<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
 					<form class="flex gap-2 w-100 mb-10 items-stretch" @submit.prevent="participate">
 						<div class="relative flex items-stretch flex-1">
-							<input id="search" v-model="amount" v-maska="'####'"
+							<input id="search" v-model="amount" @keyup="updateQuantity" v-maska="'####'"
 								   class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded"
 								   min="10"
 								   name="search" required type="number"
@@ -89,6 +89,20 @@
 									<img alt="USDC" class="w-4 mr-1"
 										 src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"/>
 									USDC
+								</kbd>
+							</div>
+						</div>
+						<div class="flex items-center">
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+							</svg>
+						</div>
+						<div class="relative flex items-stretch flex-1">
+							<input type="number" v-model="psolQuantity" readonly value="0" class="bg-gray-900 bg-opacity-40 border-gray-800 focus:ring-0 focus:outline-0 focus:border-0 block w-full pr-12 rounded">
+							<div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+								<kbd class="inline-flex items-center rounded px-2 text-sm font-sans font-medium text-gray-400">
+									<img alt="PSOL" class="w-4 mr-1" src="https://raw.githubusercontent.com/parasol-finance/white-paper/main/logo.png" />
+									PSOL
 								</kbd>
 							</div>
 						</div>
@@ -118,6 +132,7 @@ export default {
 			presaleDate: new Date("Tue, 12 Dec 2021 21:00:21 GMT"),
 			presaleTimeOffset: 0,
 			amount: 0,
+			psolQuantity: 0,
 		}
 	},
 	mounted() {
@@ -133,6 +148,9 @@ export default {
 		},
 		isWhiteListed: function () {
 			return this.$wallet.isConnected && this.participants.includes(this.$wallet.publicKey)
+		},
+		updateQuantity: function () {
+			this.psolQuantity = Math.round(this.amount / 0.21);
 		}
 	}
 }
