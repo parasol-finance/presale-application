@@ -1,5 +1,20 @@
 <template>
 	<section class="mt-20">
+		<div class="p-2 mb-6 rounded-lg bg-gradient-to-r from-purple-500 to-pink-600 shadow-lg sm:p-3">
+			<div class="flex items-center justify-between flex-wrap">
+				<div class="w-0 flex-1 flex items-center">
+					<span class="flex p-2 rounded-lg bg-purple-400">
+						<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+					</span>
+					<p class="ml-3 font-medium text-white truncate">
+						<span>
+							Warning: Our presale only works with USDC on the Solana blockchain (SPL),
+							USDT or USDC on other blockchains are not supported.
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
 		<article :class="`py-10 px-5 sm:rounded-lg relative ${this.$wallet.isConnected ? 'shadow' : ''}`">
 			<div v-if="!this.$wallet.isConnected" class="backdrop-filter z-50 backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
 				<h1 class="text-3xl mb-3 font-semibold">Connection Required</h1>
@@ -83,11 +98,25 @@
 						<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
 						<form @submit.prevent="participate" class="flex gap-2 w-100 mb-10 items-stretch">
 							<div class="relative flex items-stretch flex-1">
-								<input type="number" v-model="amount" required min="10" max="5000" v-maska="'####'" value="0" name="search" id="search" class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded">
+								<input type="number" v-model="amount" @keyup="updateQuantity" required min="10" max="5000" v-maska="'####'" value="0" name="quantity" id="quantity" class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded">
 								<div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
 									<kbd class="inline-flex items-center rounded px-2 text-sm font-sans font-medium text-gray-400">
 										<img alt="USDC" class="w-4 mr-1" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
 										USDC
+									</kbd>
+								</div>
+							</div>
+							<div class="flex items-center">
+								<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+								</svg>
+							</div>
+							<div class="relative flex items-stretch flex-1">
+								<input type="number" v-model="psolQuantity" readonly value="0" class="bg-gray-900 bg-opacity-40 border-gray-800 focus:ring-0 focus:outline-0 focus:border-0 block w-full pr-12 rounded">
+								<div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+									<kbd class="inline-flex items-center rounded px-2 text-sm font-sans font-medium text-gray-400">
+										<img alt="PSOL" class="w-4 mr-1" src="https://raw.githubusercontent.com/parasol-finance/white-paper/main/logo.png" />
+										PSOL
 									</kbd>
 								</div>
 							</div>
@@ -226,9 +255,10 @@ export default {
 	data() {
 		return {
 			now: new Date(),
-			presaleDate: new Date("Tue, 12 Dec 2021 21:00:21 GMT"),
+			presaleDate: new Date("Tue, 10 Dec 2021 21:00:21 GMT"),
 			presaleTimeOffset: 0,
 			amount: 0,
+			psolQuantity: 0,
 		}
 	},
 	mounted() {
@@ -241,10 +271,8 @@ export default {
 		participate: function () {
 			this.orderAmountOfTokens(this.amount);
 		},
-		isToday: function(someDate) {
-			return someDate.getDate() === this.now.getDate() &&
-				someDate.getMonth() === this.now.getMonth() &&
-				someDate.getFullYear() === this.now.getFullYear()
+		updateQuantity: function () {
+			this.psolQuantity = Math.round(this.amount / 0.21);
 		}
 	}
 }
