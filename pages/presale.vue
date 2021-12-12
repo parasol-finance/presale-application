@@ -104,7 +104,7 @@
 						<ul role="list" class="-mb-8">
 							<li>
 								<div class="relative pb-8">
-									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"
+									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-opacity-70 bg-pink-500"
 										  aria-hidden="true"></span>
 									<div class="relative flex space-x-3">
 										<div>
@@ -135,8 +135,8 @@
 									<span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"></span>
 									<div class="relative flex space-x-4">
 										<div>
-											<span class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<span class="h-8 w-8 rounded-full bg-pink-500 flex items-center justify-center">
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
 												</svg>
 											</span>
