@@ -174,7 +174,7 @@
 											<div>
 												<h3 class="text-base text-gray-200">Presale Opening</h3>
 												<p class="text-gray-400 text-sm">
-													Everybody can order some $PSOL in SOL or USDC.
+													Everybody can order some $PSOL in USDC.
 												</p>
 											</div>
 											<div class="text-right text-sm whitespace-nowrap text-gray-500">
