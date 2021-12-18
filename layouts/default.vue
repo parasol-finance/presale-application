@@ -10,6 +10,7 @@
 			</a>
 		</div>
 		<ThankYou />
+		<Newsletter />
 		<JoinCommunityModal />
 		<aside class="flex w-64 flex-col" style="width: 17rem;">
 			<div class="flex flex-col text-center items-center px-4 py-10">
