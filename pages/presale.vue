@@ -1,5 +1,5 @@
 <template>
-	<section class="mt-20">
+	<section class="mt-12">
 		<div class="p-2 mb-6 rounded-lg bg-gradient-to-r from-purple-500 to-pink-600 shadow-lg sm:p-3">
 			<div class="flex items-center justify-between flex-wrap">
 				<div class="w-0 flex-1 flex items-center">
@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<article :class="`py-10 px-5 sm:rounded-lg relative ${this.$wallet.isConnected ? 'shadow' : ''}`">
-			<div v-if="!this.$wallet.isConnected" class="backdrop-filter z-50 backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
+			<div v-if="!this.$wallet.isConnected" class="backdrop-filter z-30 backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
 				<h1 class="text-3xl mb-3 font-semibold">Connection Required</h1>
 				<p class="mb-5">Your wallet is currently not connected and we need it to authenticate you.</p>
 				<ConnectWallet />
