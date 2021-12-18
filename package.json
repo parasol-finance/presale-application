@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@chenfengyuan/vue-countdown": "^1.1.5",
+		"@nuxtjs/axios": "^5.13.6",
 		"@nuxtjs/robots": "^2.5.0",
 		"@solana/spl-token": "^0.1.8",
 		"@solana/web3.js": "^1.31.0",
