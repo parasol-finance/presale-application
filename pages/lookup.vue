@@ -35,7 +35,7 @@
 					The First Community Governed IDO Platform on Solana.
 				</p>
 				<p class="text-gray-200">
-					On this page, you can retrieve all your participation to our private and pre-sales.
+					On this page, you can retrieve all your participation to our private and public presale.
 				</p>
 				<div>
 					<div class="flex justify-start gap-x-12 my-10 mr-5">
@@ -60,9 +60,9 @@
 						</div>
 					</div>
 				</div>
-				<div v-if="isWhiteListed()" class="mb-6 text-sm text-yellow-300">
-					<strong>⚠️ Warning: </strong>You participated in private sale, the PSOL count can be not accurate.
-				</div>
+<!--				<div v-if="isWhiteListed()" class="mb-6 text-sm text-yellow-300">-->
+<!--					<strong>⚠️ Warning: </strong>You participated in private sale, the PSOL count can be not accurate.-->
+<!--				</div>-->
 				<table class="min-w-full divide-y divide-gray-800">
 					<thead class="">
 					<tr>
@@ -84,7 +84,7 @@
 						</th>
 					</tr>
 					</thead>
-					<tbody v-if="transactions" class="divide-y divide-gray-800">
+					<tbody v-if="transactions && transactions.length > 0" class="divide-y divide-gray-800">
 					<tr v-for="transaction in this.transactions" :key="transaction.signature">
 						<td class="pr-6 py-4 whitespace-nowrap text-sm text-gray-200">
 							Deposit USDC
@@ -119,7 +119,8 @@
 					</tbody>
 					<tfoot v-else>
 						<tr>
-							<td colspan="4" class="text-xs text-center text-gray-500 py-5">No transactions for now.</td>
+							<td v-if="loading" colspan="4" class="text-xs text-center text-gray-500 py-5">Loading transactions...</td>
+							<td v-else colspan="4" class="text-xs text-center text-gray-500 py-5">No transactions for now.</td>
 						</tr>
 					</tfoot>
 				</table>
@@ -135,12 +136,14 @@ export default {
 		return {
 			participants: [],
 			transactions: [],
+			loading: false,
 			totalUSDC: 0,
 			totalPSOL: 0,
 		}
 	},
 	async fetch() {
 		this.participants = require('assets/participants.json');
+		this.loading = true;
 		this.transactions = await this.$axios.$get(`https://parasol-finance.azurewebsites.net/queries/deposits/${this.$wallet.publicKey}`);
 		this.totalUSDC = this.transactions.map(x => x.amount).reduce((a, b) => a + b, 0);
 	},
