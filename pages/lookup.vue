@@ -145,6 +145,7 @@ export default {
 		this.participants = require('assets/participants.json');
 		this.loading = true;
 		this.transactions = await this.$axios.$get(`https://parasol-finance.azurewebsites.net/queries/deposits/${this.$wallet.publicKey}`);
+		this.loading = false;
 		this.totalUSDC = this.transactions.map(x => x.amount).reduce((a, b) => a + b, 0);
 	},
 	methods: {
