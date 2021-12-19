@@ -111,7 +111,7 @@
 							</div>
 						</td>
 						<td class="pl-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-							<a :href="`https://explorer.solana.com/tx/${transaction.signature}`" target="_blank" class="text-pink-500 hover:text-pink-300">
+							<a :href="`https://explorer.solana.com/tx/${transaction.transactionId}`" target="_blank" class="text-pink-500 hover:text-pink-300">
 								View TX
 							</a>
 						</td>
