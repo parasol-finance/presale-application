@@ -28,9 +28,9 @@
 							class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 leading-normal whitespace-nowrap inline-block">
 							Parasol Finance
 						</span>
-						<span class="text-white">| Presale | Phase 1</span>
+						<span class="text-white">| Presale | Phase 2</span>
 					</h1>
-					<p class="text-lg font-semiboldt mb-3">
+					<p class="text-lg font-semibold mb-3">
 						The First Community Governed IDO Platform on Solana.
 					</p>
 					<p class="text-gray-200">
@@ -73,7 +73,7 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Hard Cap</p>
-									<h4 class="text-xl whitespace-nowrap">463,050 USDC</h4>
+									<h4 class="text-xl whitespace-nowrap">370,440 USDC</h4>
 								</div>
 							</div>
 							<div class="flex items-center">
@@ -82,7 +82,7 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Token Price</p>
-									<h4 class="text-xl whitespace-nowrap">0.21 USDC</h4>
+									<h4 class="text-xl whitespace-nowrap">0.28 USDC</h4>
 								</div>
 							</div>
 							<div class="flex items-center">
@@ -91,9 +91,22 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Available Tokens</p>
-									<h4 class="text-xl whitespace-nowrap">2,205,000 PSOL</h4>
+									<h4 class="text-xl whitespace-nowrap">1,323,000 PSOL</h4>
 								</div>
 							</div>
+						</div>
+						<div class="flex justify-between">
+							<p class="text-gray-300 text-sm mb-3">{{ this.toUsd(this.totalParticipation) }}
+								({{ this.getParticipationProgress() }} %)
+								—
+								<a href="https://explorer.solana.com/address/PaRaxU6dFX8ZeMPAvW7mXVhJ2UQokrqJhvY9hqyzRjA" class="text-pink-500" target="_blank">
+									See on Explorer
+								</a>
+							</p>
+							<p class="text-gray-300 text-sm mb-3">Hard Cap: $370,440</p>
+						</div>
+						<div class="w-full bg-gray-400 mb-6 rounded-full h-2.5">
+							<div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2.5 rounded-full" :style="`width: ${this.getParticipationProgress()}%`"></div>
 						</div>
 						<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
 						<form @submit.prevent="participate" class="flex gap-2 w-100 mb-10 items-stretch">
@@ -259,10 +272,12 @@ export default {
 			presaleTimeOffset: 0,
 			amount: 0,
 			psolQuantity: 0,
+			totalParticipation: 0
 		}
 	},
-	mounted() {
+	async mounted() {
 		this.updateCountdown();
+		this.totalParticipation = (await this.getTotalParticipation()).value.uiAmount;
 	},
 	methods: {
 		updateCountdown: function () {
@@ -272,7 +287,13 @@ export default {
 			this.orderAmountOfTokens(this.amount);
 		},
 		updateQuantity: function () {
-			this.psolQuantity = Math.round(this.amount / 0.21);
+			this.psolQuantity = Math.round(this.amount / 0.28);
+		},
+		getParticipationProgress: function () {
+			return Math.round(100 / (370440 / this.totalParticipation));
+		},
+		toUsd: function (value) {
+			return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 		}
 	}
 }
