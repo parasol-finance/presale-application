@@ -35,7 +35,20 @@
 
 <script>
 export default {
-	name: "default"
+	name: "default",
+	mounted() {
+		window.$crisp = [];
+		window.CRISP_WEBSITE_ID = "212516d5-ff63-4686-a490-d9f77ff93710";
+		(function () {
+			let d;
+			d = document;
+			s = d.createElement("script");
+			let s;
+			s.src = "https://client.crisp.chat/l.js";
+			s.async = 1;
+			d.getElementsByTagName("head")[0].appendChild(s);
+		})();
+	}
 }
 </script>
 
