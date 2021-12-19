@@ -56,7 +56,7 @@ Vue.mixin({
 	methods:{
 		isPhantomAvailable() {
 			if (!"solana" in window) return false;
-			return window.solana.isPhantom;
+			return window.solana && window.solana.isPhantom;
 		},
 		isConnected() {
 			return window.solana.isConnected;
