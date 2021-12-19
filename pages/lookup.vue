@@ -35,7 +35,7 @@
 					The First Community Governed IDO Platform on Solana.
 				</p>
 				<p class="text-gray-200">
-					On this page, you can retrieve all your participation to our private and public presale.
+					In this page, you can view the purchases you have made in our private and public presales.
 				</p>
 				<div>
 					<div class="flex justify-start gap-x-12 my-10 mr-5">
@@ -120,7 +120,13 @@
 					<tfoot v-else>
 						<tr>
 							<td v-if="loading" colspan="4" class="text-xs text-center text-gray-500 py-5">Loading transactions...</td>
-							<td v-else colspan="4" class="text-xs text-center text-gray-500 py-5">No transactions for now.</td>
+							<td v-else colspan="4" class="text-xs text-center text-gray-500 py-5">
+								No transactions for now.
+								<NuxtLink to="/presale" class="flex items-center justify-center content-center w-64 px-5 bg-gray-700 bg-opacity-30 py-2 text-sm font-medium rounded-full shadow-lg text-gray-200 opacity-100 mt-5 mx-auto">
+									<Logo class="h-4 mr-2" />
+									Participate in Presale
+								</NuxtLink>
+							</td>
 						</tr>
 					</tfoot>
 				</table>
