@@ -16,7 +16,7 @@
 		</div>
 		<article :class="`py-10 px-5 sm:rounded-lg relative ${this.$wallet.isConnected && isWhiteListed() ? 'shadow' : ''}`">
 			<div v-if="!this.$wallet.isConnected"
-				 class="backdrop-filter z-50 backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
+				 class="backdrop-filter z-30 backdrop-blur-lg px-10 text-center flex flex-col justify-center items-center absolute top-0 left-0 w-full h-full">
 				<h1 class="text-3xl mb-3 font-semibold">Connection Required</h1>
 				<p class="mb-5">Your wallet is currently not connected and we need it to authenticate you.</p>
 				<ConnectWallet/>

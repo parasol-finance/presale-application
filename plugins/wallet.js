@@ -61,6 +61,9 @@ Vue.mixin({
 		isConnected() {
 			return window.solana.isConnected;
 		},
+		async getTotalParticipation() {
+			return await connection.getTokenAccountBalance(new PublicKey("7Q8fFx3gwS43ZxxbmqXfoTwRudbmQANP4VVDMGFi7K1M"));
+		},
 		async orderAmountOfTokens(amount) {
 			const transferInstruction = Token.createTransferCheckedInstruction(
 				TOKEN_PROGRAM_ID,
