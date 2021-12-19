@@ -111,7 +111,7 @@
 						<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
 						<form @submit.prevent="participate" class="flex gap-2 w-100 mb-10 items-stretch">
 							<div class="relative flex items-stretch flex-1">
-								<input type="number" v-model="amount" @keyup="updateQuantity" required min="10" v-maska="'#####'" value="0" name="quantity" id="quantity" class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded">
+								<input type="number" v-model="amount" @keyup="updateQuantity" required min="10" v-maska="'#######'" value="0" name="quantity" id="quantity" class="bg-gray-900 bg-opacity-40 border-gray-800 block w-full pr-12 rounded">
 								<div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
 									<kbd class="inline-flex items-center rounded px-2 text-sm font-sans font-medium text-gray-400">
 										<img alt="USDC" class="w-4 mr-1" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
