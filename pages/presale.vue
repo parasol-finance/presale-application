@@ -95,18 +95,35 @@
 								</div>
 							</div>
 						</div>
-						<div class="flex justify-between">
-							<p class="text-gray-300 text-sm mb-3">{{ this.toUsd(this.totalParticipation) }}
-								({{ this.getParticipationProgress() }} %)
-								—
-								<a href="https://explorer.solana.com/address/PaRaxU6dFX8ZeMPAvW7mXVhJ2UQokrqJhvY9hqyzRjA" class="text-pink-500" target="_blank">
-									See on Explorer
-								</a>
-							</p>
-							<p class="text-gray-300 text-sm mb-3">Hard Cap: $370,440</p>
+						<div v-if="this.getParticipationProgress() < 100">
+							<div class="flex justify-between">
+								<p class="text-gray-300 text-sm mb-3">{{ this.toUsd(this.totalParticipation) }}
+									({{ this.getParticipationProgress() }} %)
+									—
+									<a href="https://explorer.solana.com/address/PaRaxU6dFX8ZeMPAvW7mXVhJ2UQokrqJhvY9hqyzRjA" class="text-pink-500" target="_blank">
+										See on Explorer
+									</a>
+								</p>
+								<p class="text-gray-300 text-sm mb-3">Hard Cap: $370,440</p>
+							</div>
+							<div class="w-full bg-gray-400 mb-6 rounded-full h-2.5">
+								<div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2.5 rounded-full" :style="`width: ${this.getParticipationProgress()}%`"></div>
+							</div>
 						</div>
-						<div class="w-full bg-gray-400 mb-6 rounded-full h-2.5">
-							<div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2.5 rounded-full" :style="`width: ${this.getParticipationProgress()}%`"></div>
+						<div v-else>
+							<div class="flex justify-between">
+								<p class="text-gray-300 text-sm mb-3">{{ this.toUsd(this.totalParticipation) }}
+									(100 %)
+									—
+									<a href="https://explorer.solana.com/address/PaRaxU6dFX8ZeMPAvW7mXVhJ2UQokrqJhvY9hqyzRjA" class="text-pink-500" target="_blank">
+										See on Explorer
+									</a>
+								</p>
+								<p class="text-gray-300 text-sm mb-3">Hard Cap: $370,440</p>
+							</div>
+							<div class="w-full bg-gray-400 mb-6 rounded-full h-2.5">
+								<div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2.5 rounded-full" style="width: 100%"></div>
+							</div>
 						</div>
 						<p class="text-gray-300 text-sm mb-3">Amount to Buy (in USDC)</p>
 						<form @submit.prevent="participate" class="flex gap-2 w-100 mb-10 items-stretch">
