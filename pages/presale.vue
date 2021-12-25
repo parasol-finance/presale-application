@@ -28,16 +28,20 @@
 							class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 leading-normal whitespace-nowrap inline-block">
 							Parasol Finance
 						</span>
-						<span class="text-white">| Presale | Phase 2</span>
+						<span class="text-white">| Presale | Phase 3</span>
 					</h1>
 					<p class="text-lg font-semibold mb-3">
 						The First Community Governed IDO Platform on Solana.
 					</p>
-					<p class="text-gray-200">
+					<p class="text-gray-200 mb-5">
 						Parasol Finance is the first-ever community governed IDO platform built on Solana with the needs
 						of both projects and investors alike.
 					</p>
-					<div v-if="presaleTimeOffset > 0" class="my-10">
+					<p class="text-gray-200 text-sm mb-0 font-medium text-yellow-300">
+						<span class="text-yellow-300">⚠️</span>
+						This is the last phase of our presale and ends on 1st of January 2022 at 21:00:00 GMT
+					</p>
+					<div v-if="presaleTimeOffset > 0" class="mt-3 mb-10">
 						<p class="text-center text-gray-200 mb-3 font-bold">
 							Countdown before the opening of the public presale:
 						</p>
@@ -72,8 +76,8 @@
 									<img alt="USDC" class="w-10" src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" />
 								</div>
 								<div>
-									<p class="text-gray-300 text-sm">Hard Cap</p>
-									<h4 class="text-xl whitespace-nowrap">370,440 USDC</h4>
+									<p class="text-gray-300 text-sm">Hard Cap of Phase 3</p>
+									<h4 class="text-xl whitespace-nowrap">308,700 USDC</h4>
 								</div>
 							</div>
 							<div class="flex items-center">
@@ -82,7 +86,7 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Token Price</p>
-									<h4 class="text-xl whitespace-nowrap">0.28 USDC</h4>
+									<h4 class="text-xl whitespace-nowrap">0.35 USDC</h4>
 								</div>
 							</div>
 							<div class="flex items-center">
@@ -91,7 +95,7 @@
 								</div>
 								<div>
 									<p class="text-gray-300 text-sm">Available Tokens</p>
-									<h4 class="text-xl whitespace-nowrap">1,323,000 PSOL</h4>
+									<h4 class="text-xl whitespace-nowrap">882,000 PSOL</h4>
 								</div>
 							</div>
 						</div>
@@ -104,7 +108,7 @@
 										See on Explorer
 									</a>
 								</p>
-								<p class="text-gray-300 text-sm mb-3">Hard Cap: $370,440</p>
+								<p class="text-gray-300 text-sm mb-3">Total Hard Cap: $1,142,190</p>
 							</div>
 							<div class="w-full bg-gray-400 mb-6 rounded-full h-2.5">
 								<div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2.5 rounded-full" :style="`width: ${this.getParticipationProgress()}%`"></div>
@@ -119,7 +123,7 @@
 										See on Explorer
 									</a>
 								</p>
-								<p class="text-gray-300 text-sm mb-3">Hard Cap: $370,440</p>
+								<p class="text-gray-300 text-sm mb-3">Total Hard Cap: $1,142,190</p>
 							</div>
 							<div class="w-full bg-gray-400 mb-6 rounded-full h-2.5">
 								<div class="bg-gradient-to-r from-purple-500 to-pink-600 h-2.5 rounded-full" style="width: 100%"></div>
@@ -304,10 +308,10 @@ export default {
 			this.orderAmountOfTokens(this.amount);
 		},
 		updateQuantity: function () {
-			this.psolQuantity = Math.round(this.amount / 0.28);
+			this.psolQuantity = Math.round(this.amount / 0.35);
 		},
 		getParticipationProgress: function () {
-			return Math.round(100 / (370440 / this.totalParticipation));
+			return Math.round(100 / (1142190 / this.totalParticipation));
 		},
 		toUsd: function (value) {
 			return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
@@ -319,8 +323,6 @@ export default {
 <style scoped>
 article.shadow
 {
-	/*filter: drop-shadow(0 0 1rem hsl(228deg 18% 10%));*/
-	/*background: hsl(228deg 18% 12%);*/
 	filter: drop-shadow(0 0 0.5rem hsl(228deg 18% 10%));
 	background: hsl(228deg 18% 12%);
 }
