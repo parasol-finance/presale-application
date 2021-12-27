@@ -20,7 +20,7 @@
 						</h3>
 						<div class="mt-2">
 							<p class="text-gray-500">
-								You’ll receive Parasol Finance tokens in your wallet within 24 hours after the Phase 2 (26th December 2021 at 21:00:00 GMT) event ends.
+								You’ll receive Parasol Finance tokens in your wallet within 24 hours after the Phase 3 (1st of January 2022 at 21:00:00 GMT) event ends.
 <!--								Congratulations you have just participated in our presale, and we thank you, do not hesitate now to follow us on social networks!-->
 							</p>
 						</div>
