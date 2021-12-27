@@ -21,7 +21,7 @@
 			<a href="https://coinmarketcap.com/currencies/parasol-finance/" target="_blank" class="flex items-center justify-center px-5 bg-gray-700 bg-opacity-30 py-2 text-sm font-medium rounded-full shadow-lg text-gray-200 opacity-100">
 				<Logo class="h-5 mr-2" />
 				<!--&asymp;-->
-				1 PSOL &equals; LISTED SOON
+				1 PSOL &equals; $0.35
 			</a>
 			<ConnectWallet />
 		</div>
