@@ -68,7 +68,7 @@
 					<tr>
 						<th scope="col"
 							class="pr-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-							Slot
+							Phase
 						</th>
 						<th scope="col"
 							class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -87,7 +87,7 @@
 					<tbody v-if="transactions && transactions.length > 0" class="divide-y divide-gray-800">
 					<tr v-for="transaction in this.transactions" :key="transaction.signature">
 						<td class="pr-6 py-4 whitespace-nowrap text-sm text-gray-200">
-							{{ transaction.slot }}
+							{{ transaction.phaseName }}
 						</td>
 						<td class="px-6 py-4 inline-flex items-center whitespace-nowrap">
 							<div class="inline-flex items-center">
@@ -118,7 +118,10 @@
 						<tr>
 							<td v-if="loading" colspan="4" class="text-xs text-center text-gray-500 py-5">Calculation of deposits in progress...</td>
 							<td v-else colspan="4" class="text-xs text-center text-gray-500 py-5">
-								No transactions for now.
+								No transactions for now,
+								<a href="javascript:void(0);" @click="loadTransactions" class="text-pink-500">
+									try again.
+								</a>
 								<NuxtLink to="/presale" class="flex items-center justify-center content-center w-64 px-5 bg-gray-700 bg-opacity-30 py-2 text-sm font-medium rounded-full shadow-lg text-gray-200 opacity-100 mt-5 mx-auto">
 									<Logo class="h-4 mr-2" />
 									Participate in Presale
@@ -145,14 +148,18 @@ export default {
 		}
 	},
 	async fetch() {
-		this.participants = require('assets/participants.json');
-		this.loading = true;
-		this.transactions = await this.$axios.$get(`https://parasol-finance.azurewebsites.net/queries/deposits/${this.$wallet.publicKey}`);
-		this.loading = false;
-		this.totalUSDC = this.transactions.map(x => x.amount).reduce((a, b) => a + b, 0);
-		this.totalPSOL = this.transactions.map(x => x.psolAmount).reduce((a, b) => a + b, 0);
+		await this.loadTransactions();
 	},
 	methods: {
+		async loadTransactions() {
+
+			this.participants = require('assets/participants.json');
+			this.loading = true;
+			this.transactions = await this.$axios.$get(`https://parasol-finance.azurewebsites.net/queries/deposits/${this.$wallet.publicKey}`);
+			this.loading = false;
+			this.totalUSDC = this.transactions.map(x => x.amount).reduce((a, b) => a + b, 0);
+			this.totalPSOL = this.transactions.map(x => x.psolAmount).reduce((a, b) => a + b, 0);
+		},
 		isWhiteListed() {
 			return this.$wallet.isConnected && this.participants.includes(this.$wallet.publicKey)
 		}
