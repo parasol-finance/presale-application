@@ -55,20 +55,20 @@
 							</div>
 							<div>
 								<p class="text-gray-300 text-sm">Bought Tokens</p>
-								<h4 class="text-xl whitespace-nowrap">{{ (this.totalUSDC / this.tokenPrice()).toFixed(0) }} PSOL</h4>
+								<h4 class="text-xl whitespace-nowrap">{{ this.totalPSOL.toFixed(2) }} PSOL</h4>
 							</div>
 						</div>
 					</div>
 				</div>
-<!--				<div v-if="isWhiteListed()" class="mb-6 text-sm text-yellow-300">-->
-<!--					<strong>⚠️ Warning: </strong>You participated in private sale, the PSOL count can be not accurate.-->
-<!--				</div>-->
+				<div v-if="isWhiteListed()" class="mb-6 text-sm text-yellow-300">
+					<strong>⚠️ Info: </strong>As a whitelisted person you will always get a price of $0.07 at any presale phase.
+				</div>
 				<table class="min-w-full divide-y divide-gray-800">
 					<thead class="">
 					<tr>
 						<th scope="col"
 							class="pr-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-							Operation
+							Slot
 						</th>
 						<th scope="col"
 							class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -87,10 +87,7 @@
 					<tbody v-if="transactions && transactions.length > 0" class="divide-y divide-gray-800">
 					<tr v-for="transaction in this.transactions" :key="transaction.signature">
 						<td class="pr-6 py-4 whitespace-nowrap text-sm text-gray-200">
-							Deposit USDC
-<!--							<a href="" class="text-pink-500 text-truncate">-->
-<!--								2GPJzQMkNtSHmrrPFMaABEKyWU2heZngmp8sHLciva5nQYNkvQeWk5K7AoGVN3bbqBFG91JdBGzxYEvM747qXHtF-->
-<!--							</a>-->
+							{{ transaction.slot }}
 						</td>
 						<td class="px-6 py-4 inline-flex items-center whitespace-nowrap">
 							<div class="inline-flex items-center">
@@ -103,7 +100,7 @@
 						</td>
 						<td class="px-6 py-4whitespace-nowrap">
 							<div class="inline-flex items-center">
-								{{ (transaction.amount / tokenPrice()).toFixed(0) }}
+								{{ transaction.psolAmount }}
 								<span class="font-sans ml-2 inline-flex items-center font-medium text-gray-400">
 									<img alt="PSOL" class="w-4 mr-1" src="https://raw.githubusercontent.com/parasol-finance/white-paper/main/logo.png" />
 									PSOL
@@ -119,7 +116,7 @@
 					</tbody>
 					<tfoot v-else>
 						<tr>
-							<td v-if="loading" colspan="4" class="text-xs text-center text-gray-500 py-5">Loading transactions...</td>
+							<td v-if="loading" colspan="4" class="text-xs text-center text-gray-500 py-5">Calculation of deposits in progress...</td>
 							<td v-else colspan="4" class="text-xs text-center text-gray-500 py-5">
 								No transactions for now.
 								<NuxtLink to="/presale" class="flex items-center justify-center content-center w-64 px-5 bg-gray-700 bg-opacity-30 py-2 text-sm font-medium rounded-full shadow-lg text-gray-200 opacity-100 mt-5 mx-auto">
@@ -153,16 +150,11 @@ export default {
 		this.transactions = await this.$axios.$get(`https://parasol-finance.azurewebsites.net/queries/deposits/${this.$wallet.publicKey}`);
 		this.loading = false;
 		this.totalUSDC = this.transactions.map(x => x.amount).reduce((a, b) => a + b, 0);
+		this.totalPSOL = this.transactions.map(x => x.psolAmount).reduce((a, b) => a + b, 0);
 	},
 	methods: {
-		updateQuantity() {
-			this.psolQuantity = Math.round(this.amount / 0.07);
-		},
 		isWhiteListed() {
 			return this.$wallet.isConnected && this.participants.includes(this.$wallet.publicKey)
-		},
-		tokenPrice() {
-			return this.isWhiteListed() ? 0.07 : 0.21;
 		}
 	}
 }
